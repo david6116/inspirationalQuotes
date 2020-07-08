@@ -72,28 +72,23 @@ class App extends React.Component {
             this.state.posts.map(
                 (person) => {
                     return <div class="col mb-4 ">
-                      <div class="card text-white bg-dark text-center h-100" style="width: 40rem;">
-                        <img class="card-img-top h-50" src={person.image} />
+                        <div class="card text-white bg-dark text-center h-100">
+                            <img class="card-img-top h-50" src={person.image} />
+                            <div class="card-body">
+                            <h5 class="card-title">{person.name}</h5>
+                            <p class="card-text">{person.body}</p>
+                            <a href="#">
+                                <button type="button" name="button" class="btn btn-primary mb-4 mt-5 bg-info">Edit</button>
+                            </a>
 
-                        <div class="card-body">
-                          <h5 class="card-title">{person.name}</h5>
+                            <form action="#" method="POST">
+                                <input class="btn btn-primary bg-info" type="submit" value="DELETE"/>
+                            </form>
 
-                          <p class="card-text">{person.body}</p>
-
-                          <a href="/Love/<%=lovePosts[i].id%>/edit">
-                          
-                            <button type="button" name="button" class="btn btn-primary mb-4 mt-5 bg-info">Edit</button>
-                          </a>
-
-                    <!-- IDEA: delete button -->
-                      <form action="/Love/<%=lovePosts[i].id %>?_method=DELETE" method="POST">
-                      <input class="btn btn-primary bg-info" type="submit" value="DELETE"/>
-                      </form>
-
-                    </div>
+                        </div>
                     </div>
 
-                    </div>
+                </div>
                 }
             )
         }

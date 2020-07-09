@@ -31,6 +31,17 @@ class App extends React.Component {
             }
         )
     }
+    deletePost = (event) => {
+        axios.delete('/posts/' + event.target.value).then(
+            (response) => {
+                this.setState(
+                    {
+                        posts:response.data
+                    }
+                )
+            }
+        )
+    }
 
     changeNewPostImage = (event) => {
         this.setState({
@@ -81,9 +92,9 @@ class App extends React.Component {
                                 <a href="#">
                                     <button type="button" name="button" className="btn btn-primary mb-4 mt-5 bg-info">Edit</button>
                                 </a>
-                                <form action="#" method="POST">
-                                    <input className="btn btn-primary bg-info" type="submit" value="DELETE"/>
-                                </form>
+                                <button value={person.id} onClick={this.deletePost} className="btn btn-primary mb-4 mt-5 bg-info">
+                                    DELETE
+                                </button>
                             </div>
                         </div>
                     </div>

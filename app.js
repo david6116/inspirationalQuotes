@@ -59,6 +59,14 @@ class App extends React.Component {
 
     render = () => {
         return <div>
+
+        <div className="header">
+          <img src='https://i.postimg.cc/50FtCWhS/photo-of-daisy-flowers-1477166.jpg' className="img-fluid" alt="Responsive image"/>
+        </div>
+
+
+
+
         <h1 className="mt-5">Inspirational Quote Generator</h1>
         <div className="card mt-4">
         <h2 className= "ml-4 mr-4 mt-4 mb-4" >Create a quote</h2>
@@ -76,18 +84,18 @@ class App extends React.Component {
         {
             this.state.posts.map(
                 (person) => {
-                    return <div class="col mb-4 ">
-                        <div class="card text-white bg-dark text-center h-100">
-                            <img class="card-img-top h-50" src={person.image} />
-                            <div class="card-body">
-                            <h5 class="card-title">{person.name}</h5>
-                            <p class="card-text">{person.body}</p>
+                    return <div className="col mb-4 ">
+                        <div className="card text-white bg-dark text-center h-100">
+                            <img className="card-img-top h-50" src={person.image} />
+                            <div className="card-body">
+                            <h5 className="card-title">{person.name}</h5>
+                            <p className="card-text">{person.body}</p>
                             <a href="#">
-                                <button type="button" name="button" class="btn btn-primary mb-4 mt-5 bg-info">Edit</button>
+                                <button type="button" name="button" className="btn btn-primary mb-4 mt-5 bg-info">Edit</button>
                             </a>
 
                             <form action="#" method="POST">
-                                <input class="btn btn-primary bg-info" type="submit" value="DELETE"/>
+                                <input className="btn btn-primary bg-info" type="submit" value="DELETE"/>
                             </form>
 
                         </div>

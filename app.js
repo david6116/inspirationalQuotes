@@ -72,15 +72,24 @@ class App extends React.Component {
             updatePostBody:event.target.value
         })
     }
+    changeUpdatePostImage = (event) => {
+        this.setState({
+            updatePostImage:event.target.value
+        })
+    }
+
 
     updateQuote = (event) => {
+        console.log(this.state.updatePostName)
+        console.log(event)
         event.preventDefault();
         const id = event.target.getAttribute('id');
         axios.put(
             '/posts/' + id,
             {
-                name:this.state.updatePostName,
+                name: this.state.updatePostName,
                 body: this.state.updatePostBody,
+                image: this.state.updatePostImage,
             }
         )
             .then((response) => {
@@ -121,14 +130,12 @@ class App extends React.Component {
                                 <form id={person.id} onSubmit={this.updateQuote}>
                                     <input onKeyUp={this.changeUpdatePostName} type="text" placeholder="title"/><br/>
                                     <input onKeyUp={this.changeUpdatePostBody} type="text" placeholder="body"/><br/>
-                                    <input type="submit" value="Update Quote"/>
+                                    <input onKeyUp={this.changeUpdatePostImage} type="text" placeholder={person.image}/><br/>
+                                    <input className="btn btn-primary mb-4 mt-5 bg-info" type="submit" value="Update Quote"/>
+                                    <button value={person.id} onClick={this.deletePost} className="btn btn-primary mb-4 mt-5 bg-info">
+                                        DELETE
+                                    </button>
                                 </form>
-                                <a href="#">
-                                    <button type="button" name="button" className="btn btn-primary mb-4 mt-5 bg-info">Edit</button>
-                                </a>
-                                <button value={person.id} onClick={this.deletePost} className="btn btn-primary mb-4 mt-5 bg-info">
-                                    DELETE
-                                </button>
                             </div>
                         </div>
                     </div>

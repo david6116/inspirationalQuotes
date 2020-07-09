@@ -52,8 +52,8 @@ class App extends React.Component {
 
     render = () => {
         return <div>
-        <div className="header">
-          <img src='https://i.postimg.cc/50FtCWhS/photo-of-daisy-flowers-1477166.jpg' className="img-fluid" alt="Responsive image"/>
+            <div className="header mt-4">
+          <img src='https://i.postimg.cc/50FtCWhS/photo-of-daisy-flowers-1477166.jpg' className="img-fluid mt-4 headimg" alt="Responsive image"/>
         </div>
         <h1 className="mt-5">Inspirational Quote Generator</h1>
         <div className="card mt-4">

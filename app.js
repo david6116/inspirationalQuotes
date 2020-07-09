@@ -107,7 +107,7 @@ class App extends React.Component {
             </div>
             </form>
         </div>
-        <h2 className="mt-4"> Quotes: </h2>
+        <h1 className="mt-4"> Quotes: </h1>
         <ul>
         {
             this.state.posts.map(

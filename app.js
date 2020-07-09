@@ -61,6 +61,35 @@ class App extends React.Component {
         })
     }
 
+    changeUpdatePostName = (event) => {
+        this.setState({
+            updatePostName:event.target.value
+        })
+    }
+
+    changeUpdatePostBody = (event) => {
+        this.setState({
+            updatePostBody:event.target.value
+        })
+    }
+
+    updateQuote = (event) => {
+        event.preventDefault();
+        const id = event.target.getAttribute('id');
+        axios.put(
+            '/posts/' + id,
+            {
+                name:this.state.updatePostName,
+                body: this.state.updatePostBody,
+            }
+        )
+            .then((response) => {
+                this.setState({
+                    posts:response.data
+                })
+            })
+    }
+
     render = () => {
         return <div>
             <div className="header mt-4">
@@ -89,6 +118,11 @@ class App extends React.Component {
                             <div className="card-body">
                                 <h5 className="card-title">{person.name}</h5>
                                 <p className="card-text">{person.body}</p>
+                                <form id={person.id} onSubmit={this.updateQuote}>
+                                    <input onKeyUp={this.changeUpdatePostName} type="text" placeholder="title"/><br/>
+                                    <input onKeyUp={this.changeUpdatePostBody} type="text" placeholder="body"/><br/>
+                                    <input type="submit" value="Update Quote"/>
+                                </form>
                                 <a href="#">
                                     <button type="button" name="button" className="btn btn-primary mb-4 mt-5 bg-info">Edit</button>
                                 </a>

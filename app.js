@@ -59,14 +59,19 @@ class App extends React.Component {
 
     render = () => {
         return <div>
-        <h2>Create a quote</h2>
+        <h1 className="mt-5">Inspirational Quote Generator</h1>
+        <div className="card mt-4">
+        <h2 className= "ml-4 mr-4 mt-4 mb-4" >Create a quote</h2>
         <form onSubmit={this.createPost}>
-            <input onKeyUp={this.changeNewPostName} type="text" placeholder="name" /><br/>
-            <input onKeyUp={this.changeNewPostPost} type="text" placeholder="text.." /><br/>
-            <input onKeyUp={this.changeNewPostImage} type="url" placeholder="http://" /><br/>
+          <div className="form-group ml-4 mr-4">
+            <input className="form-control" onKeyUp={this.changeNewPostName} type="text" placeholder="name" /><br/>
+            <input className="form-control" onKeyUp={this.changeNewPostPost} type="text" placeholder="text.." /><br/>
+            <input className="form-control" onKeyUp={this.changeNewPostImage} type="url" placeholder="http://" /><br/>
             <input type="submit" value="Create post" />
+            </div>
             </form>
-            <h2> Quotes: </h2>
+            </div>
+            <h2 className="mt-4"> Quotes: </h2>
         <ul>
         {
             this.state.posts.map(
